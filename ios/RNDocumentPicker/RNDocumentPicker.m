@@ -125,7 +125,7 @@ RCT_EXPORT_METHOD(pick:(NSDictionary *)options
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url
 {
-    if (controller.documentPickerMode == UIDocumentPickerModeImport) {
+    if (controller.documentPickerMode == UIDocumentPickerModeOpen) {
         RCTPromiseResolveBlock resolve = [composeResolvers lastObject];
         RCTPromiseRejectBlock reject = [composeRejecters lastObject];
         [composeResolvers removeLastObject];
@@ -144,7 +144,7 @@ RCT_EXPORT_METHOD(pick:(NSDictionary *)options
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls
 {
-    if (controller.documentPickerMode == UIDocumentPickerModeImport) {
+    if (controller.documentPickerMode == UIDocumentPickerModeOpen) {
         RCTPromiseResolveBlock resolve = [composeResolvers lastObject];
         RCTPromiseRejectBlock reject = [composeRejecters lastObject];
         [composeResolvers removeLastObject];
@@ -168,7 +168,7 @@ RCT_EXPORT_METHOD(pick:(NSDictionary *)options
 
 - (void)documentPickerWasCancelled:(UIDocumentPickerViewController *)controller
 {
-    if (controller.documentPickerMode == UIDocumentPickerModeImport) {
+    if (controller.documentPickerMode == UIDocumentPickerModeOpen) {
         RCTPromiseRejectBlock reject = [composeRejecters lastObject];
         [composeResolvers removeLastObject];
         [composeRejecters removeLastObject];
